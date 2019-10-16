@@ -3,73 +3,78 @@ import Plateau from './Plateau';
 import Rover from './Rover';
 
 export function addRover(plateau: Plateau, rover: Rover) {
-  if (this.positionValid(plateau, plateau.rovers.length + 1, rover)) {
-    plateau.rovers.concat(rover);
+  if (positionValid(plateau, plateau.rovers.length + 1, rover)) {
+    plateau.rovers.push(rover);
   }
 }
 
-export function moveRover(plateau: Plateau, roverIndex: number, rover: Rover, move: Move) {
+export function moveRover(plateau: Plateau, roverIndex: number, move: Move) {
+  let rover = plateau.rovers[roverIndex];
   let newRover = rover;
 
   if (move === Move.M) {
     switch (newRover.dir) {
-      case 'N':
+      case Direction.N:
         newRover.y++;
         break;
-      case 'E':
+      case Direction.E:
         newRover.x++;
         break;
-      case 'S':
+      case Direction.S:
         newRover.y--;
         break;
-      case 'W':
+      case Direction.W:
         newRover.x--;
         break;
-      default:
-        throw new Error('Invalid M move...');
     }
   }
   else if (move === Move.L) {
     switch (newRover.dir) {
-      case 'N':
+      case Direction.N:
         newRover.dir = Direction.W;
-      case 'E':
+      case Direction.E:
         newRover.dir = Direction.N;
-      case 'S':
+      case Direction.S:
         newRover.dir = Direction.E;
-      case 'W':
-        newRover.dir = Direction.S;      
-      default:
-        throw new Error('Invalid L move...');
+      case Direction.W:
+        newRover.dir = Direction.S;
+        break;
     }
   }
   else if (move === Move.R) {
     switch (newRover.dir) {
-      case 'N':
+      case Direction.N:
         newRover.dir = Direction.E;
-      case 'E':
+      case Direction.E:
         newRover.dir = Direction.S;
-      case 'S':
+      case Direction.S:
         newRover.dir = Direction.W;
-      case 'W':
+      case Direction.W:
         newRover.dir = Direction.N;      
-      default:
-        throw new Error('Invalid R move...');
+        break;
     }
   }
   else {
     throw new Error('Invalid  move ' + move);
   }
 
-  if (this.positionValid(plateau, roverIndex, newRover)) {
-    plateau.rovers[roverIndex] = newRover;
+  try {
+    if (positionValid(plateau, roverIndex, newRover)) {
+      plateau.rovers[roverIndex] = newRover;
+    }
+  }
+  catch (e) {
+    // do nothing
   }
 }
 
-export function positionValid(plateau: Plateau, roverIndex: number, rover: Rover) {
+function positionValid(plateau: Plateau, roverIndex: number, rover? : Rover) {
+  if (rover === undefined) {
+    rover = plateau.rovers[roverIndex];
+  }
   // check if rover is out of bounds
   if (rover.x > plateau.w || rover.x < 0 || rover.y > plateau.h || rover.y < 0) {
-    throw new Error('Rover out of bounds');
+    throw new Error('Rover out of bounds - Rover:' + rover.x + ', ' + rover.y + '. Plateau: ' + plateau.w + ', ' + plateau.h);
   }
 
   // check if rover is taking up space of another rover
@@ -79,6 +84,8 @@ export function positionValid(plateau: Plateau, roverIndex: number, rover: Rover
       throw new Error('Rover is going to crash');
     }
   }
+
+  console.log('Rover:' + rover.x + ', ' + rover.y);
 
   return true;
 }
