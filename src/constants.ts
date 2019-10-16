@@ -1,12 +1,12 @@
 export enum Direction {
-  N,
-  E,
-  S,
-  W
+  N = 'N',
+  E = 'E',
+  S = 'S',
+  W = 'W'
 }
 
 export enum Move {
-  L,
-  R,
-  M
+  L = 'L',
+  R = 'R',
+  M = 'M'
 }

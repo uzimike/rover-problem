@@ -30,7 +30,6 @@ Operation.moveRover(plateau, 1, Move.R);
 Operation.moveRover(plateau, 1, Move.R);
 Operation.moveRover(plateau, 1, Move.M);
 
-for (var i = plateau.rovers.length - 1; i >= 0; i--) {
-  console.log(plateau.rovers[i]);
-  console.log('----------');
+for (var i = 0; i < plateau.rovers.length; i++) {
+  console.log(plateau.rovers[i].x + ' ' + plateau.rovers[i].y + ' ' + plateau.rovers[i].dir);
 }

@@ -9,8 +9,7 @@ export function addRover(plateau: Plateau, rover: Rover) {
 }
 
 export function moveRover(plateau: Plateau, roverIndex: number, move: Move) {
-  let rover = plateau.rovers[roverIndex];
-  let newRover = rover;
+  let newRover = plateau.rovers[roverIndex];
 
   if (move === Move.M) {
     switch (newRover.dir) {
@@ -32,10 +31,13 @@ export function moveRover(plateau: Plateau, roverIndex: number, move: Move) {
     switch (newRover.dir) {
       case Direction.N:
         newRover.dir = Direction.W;
+        break;
       case Direction.E:
         newRover.dir = Direction.N;
+        break;
       case Direction.S:
         newRover.dir = Direction.E;
+        break;
       case Direction.W:
         newRover.dir = Direction.S;
         break;
@@ -45,10 +47,13 @@ export function moveRover(plateau: Plateau, roverIndex: number, move: Move) {
     switch (newRover.dir) {
       case Direction.N:
         newRover.dir = Direction.E;
+        break;
       case Direction.E:
         newRover.dir = Direction.S;
+        break;
       case Direction.S:
         newRover.dir = Direction.W;
+        break;
       case Direction.W:
         newRover.dir = Direction.N;      
         break;
