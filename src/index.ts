@@ -32,4 +32,5 @@ Operation.moveRover(plateau, 1, Move.M);
 
 for (var i = plateau.rovers.length - 1; i >= 0; i--) {
   console.log(plateau.rovers[i]);
+  console.log('----------');
 }
