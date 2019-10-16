@@ -1,0 +1,31 @@
+{
+  "name": "michael-rover",
+  "version": "1.0.0",
+  "description": "A CLI rover operation",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/uzimike/rover-problem.git"
+  },
+  "keywords": [
+    "Rover"
+  ],
+  "author": "Michael Benjamin Kotlyar (uzimike)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uzimike/rover-problem/issues"
+  },
+  "homepage": "https://github.com/uzimike/rover-problem#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "assert": "^2.0.0",
+    "mocha": "^6.2.1",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  }
+}
