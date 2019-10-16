@@ -84,8 +84,5 @@ function positionValid(plateau: Plateau, roverIndex: number, rover? : Rover) {
       throw new Error('Rover is going to crash');
     }
   }
-
-  console.log('Rover:' + rover.x + ', ' + rover.y);
-
   return true;
 }
