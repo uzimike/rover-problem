@@ -1,13 +1,13 @@
-import * as chai from 'chai';
-import { Direction, Move } from '../src/constants';
-import * as Operation from '../src/Operation';
-import Rover from '../src/Rover';
-import Plateau from '../src/Plateau';
+import * as chai from "chai";
+import { Direction, Move } from "../src/constants";
+import * as Operation from "../src/Operation";
+import Rover from "../src/Rover";
+import Plateau from "../src/Plateau";
 
-describe('Operation.ts', () => {
+describe("Operation.ts", () => {
   let plateau: Plateau = new Plateau(5, 5);
 
-  it('Rover deployment: 1', () => {
+  it("Rover deployment: 1", () => {
     let rover = new Rover(1, 2, Direction.N);
     Operation.addRover(plateau, rover);
 
@@ -39,7 +39,7 @@ describe('Operation.ts', () => {
     chai.expect(rover.y).to.equal(3);
   });
 
-  it('Rover deployment: 2', () => {
+  it("Rover deployment: 2", () => {
     let rover = new Rover(3, 3, Direction.E);
     Operation.addRover(plateau, rover);
 

@@ -1,42 +1,42 @@
-import Plateau from './Plateau';
-import Rover from './Rover';
-import * as Operation from './Operation';
-import * as Parser from './Parser';
-import { Direction, Move } from './constants';
-import * as inquirer from 'inquirer';
+import * as inquirer from "inquirer";
+import { Direction, Move } from "./constants";
+import * as Operation from "./Operation";
+import * as Parser from "./Parser";
+import Plateau from "./Plateau";
+import Rover from "./Rover";
 
-var roverIndex = 0;
-var plateau;
+let roverIndex = 0;
+let plateau: Plateau;
 
-var plateauQuestions = [
+const plateauQuestions = [
   {
-    type: 'input',
-    name: 'plateauSize',
-    message: 'Plateau size:'
-  }
+    message: "Plateau size:",
+    name: "plateauSize",
+    type: "input",
+  },
 ];
 
-var roverQuestions = [
+const roverQuestions = [
   {
-    type: 'input',
-    name: 'roverLocation',
-    message: 'Rover location:'
+    message: "Rover location:",
+    name: "roverLocation",
+    type: "input",
   },
   {
-    type: 'input',
-    name: 'roverMoves',
-    message: 'Rover moves:'
+    message: "Rover moves:",
+    name: "roverMoves",
+    type: "input",
   },
   {
-    type: 'confirm',
-    name: 'askAgain',
-    message: 'Would you like to add another rover? (just hit enter for YES)',
-    default: true
-  }
+    default: true,
+    message: "Would you like to add another rover? (just hit enter for YES)",
+    name: "askAgain",
+    type: "confirm",
+  },
 ];
 
 function plateauPrompt() {
-  inquirer.prompt(plateauQuestions).then(input => {
+  inquirer.prompt(plateauQuestions).then((input) => {
     plateau = Parser.createPlateauFromInput(input.plateauSize);
   })
   .then(() => {
@@ -44,17 +44,16 @@ function plateauPrompt() {
   });
 }
 
-function roverPrompt(plateau) {
-  inquirer.prompt(roverQuestions).then(input => {
+function roverPrompt(plateau: Plateau) {
+  inquirer.prompt(roverQuestions).then((input) => {
     Parser.createRoverFromInput(plateau, roverIndex, input.roverLocation);
     Parser.moveRoverFromInput(plateau, roverIndex, input.roverMoves);
     if (input.askAgain) {
       roverIndex++;
       roverPrompt(plateau);
-    } 
-    else {
-      for (var i = 0; i < plateau.rovers.length; i++) {
-        console.info(plateau.rovers[i].x, plateau.rovers[i].y, plateau.rovers[i].dir);
+    } else {
+      for (const rover of plateau.rovers) {
+        console.info(rover.x, rover.y, rover.dir);
       }
     }
   });
