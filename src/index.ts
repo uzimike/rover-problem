@@ -30,7 +30,7 @@ var roverQuestions = [
   {
     type: 'confirm',
     name: 'askAgain',
-    message: 'Would you like to add another rover (just hit enter for YES)?',
+    message: 'Would you like to add another rover? (just hit enter for YES)',
     default: true
   }
 ];
@@ -54,7 +54,7 @@ function roverPrompt(plateau) {
     } 
     else {
       for (var i = 0; i < plateau.rovers.length; i++) {
-        console.log(plateau.rovers[i].x, plateau.rovers[i].y, plateau.rovers[i].dir;
+        console.info(plateau.rovers[i].x, plateau.rovers[i].y, plateau.rovers[i].dir);
       }
     }
   });
