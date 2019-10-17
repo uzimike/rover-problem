@@ -28,9 +28,12 @@
     "url": "https://github.com/uzimike/rover-problem/issues"
   },
   "homepage": "https://github.com/uzimike/rover-problem#readme",
-  "dependencies": {},
+  "dependencies": {
+    "inquirer": "^7.0.0"
+  },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.1",
     "assert": "^2.0.0",
     "chai": "^4.2.0",
     "mocha": "^6.2.1",
