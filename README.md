@@ -2,7 +2,7 @@
 
 PROBLEM THREE: MARS ROVERS
 
-![Rover Problem](https://i.imgur.com/1SHbLfB.png =260x)
+![Rover Problem](https://i.imgur.com/1SHbLfB.png)
 
 A CLI program that asks for input to deploy and move the rovers on a variably sized plateau.
 
