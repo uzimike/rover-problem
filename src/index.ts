@@ -1,6 +1,5 @@
 import * as inquirer from "inquirer";
 import { Direction, Move } from "./constants";
-import * as Operation from "./Operation";
 import * as Parser from "./Parser";
 import Plateau from "./Plateau";
 import Rover from "./Rover";
