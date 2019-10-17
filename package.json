@@ -4,7 +4,8 @@
   "description": "A CLI rover operation",
   "main": "lib/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "node lib/index.js",
+    "dev": "ts-node src/index.ts",
     "compile": "tsc --declaration",
     "lint": "tslint --project tsconfig.json",
     "prepublish": "npm run compile",
