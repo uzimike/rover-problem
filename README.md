@@ -1,4 +1,4 @@
-# PROBLEM THREE: MARS ROVERS
+<h1 align="center">PROBLEM THREE: MARS ROVERS</h1>
 
 <p align="center">
 	<img alt="Rover problem" src="https://i.imgur.com/1SHbLfB.png" width="546">
