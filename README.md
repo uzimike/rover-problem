@@ -1,7 +1,7 @@
-#Rover Problem
-##How to run
+# Rover Problem
+## How to run
 
 
-##Resources
+## Resources
 
 Typescript/mocha boilerplate from https://github.com/mochajs/mocha-examples/tree/master/typescript
